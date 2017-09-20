@@ -1,45 +1,14 @@
-from flask import Flask, request
-import json
-import requests
- 
-app = Flask(__name__)
- 
-@app.route('/')
-def index():
-    return "Hello World!"
-# ส่วน callback สำหรับ Webhook
-@app.route('/callback', methods=['POST'])
-def callback():
-    json_line = request.get_json()
-    json_line = json.dumps(json_line)
-    decoded = json.loads(json_line)
-    user = decoded["events"][0]['replyToken']
-    #id=[d['replyToken'] for d in user][0]
-    #print(json_line)
-    print("ผู้ใช้：",user)
-    sendText(user,'งง') # ส่งข้อความ งง
-    return '',200
- 
-def sendText(user, text):
-    LINE_API = 'https://api.line.me/v2/bot/message/reply'
-    Authorization = 'lK+LiftMxJYs2X3wm0XzcykDvsJO8j8VY9R2xdxLzbjACs6RF0SpXkUP/Q3BLVXePKM6aF+RM7HkK5ExlTbDBS1FicGR1GHLdEakqLcun0+a4QnhW2+wBkQW7yRkUNAsjiU3EeP4khtaxqfDrVTj3gdB04t89/1O/w1cDnyilFU=' # ใส่ ENTER_ACCESS_TOKEN เข้าไป
- 
-    headers = {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization':Authorization
-    }
- 
-    data = json.dumps({
-        "replyToken":user,
-        "messages":[{
-            "type":"text",
-            "text":text
-        }]
-    })
- 
-    #print("ข้อมูล：",data)
-    r = requests.post(LINE_API, headers=headers, data=data) # ส่งข้อมูล
-    #print(r.text)
- 
-if __name__ == '__main__':
-     app.run(debug=True)
+#!/usr/bin/python
+#-*-coding: utf-8 -*-
+
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
+from linebot.exceptions import LineBotApiError
+
+line_bot_api = LineBotApi('lK+LiftMxJYs2X3wm0XzcykDvsJO8j8VY9R2xdxLzbjACs6RF0SpXkUP/Q3BLVXePKM6aF+RM7HkK5ExlTbDBS1FicGR1GHLdEakqLcun0+a4QnhW2+wBkQW7yRkUNAsjiU3EeP4khtaxqfDrVTj3gdB04t89/1O/w1cDnyilFU=')
+
+try:
+    line_bot_api.push_message('Ucf88fc62d218cfd2f42f358ff16c8551', TextSendMessage(text='Hello World!'))
+    line_bot_api.reply_message(reply_token, TextSendMessage(text='ขอบคุณครับ!'))
+except LineBotApiError as e:
+    # error handle
