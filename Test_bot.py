@@ -22,7 +22,7 @@ def callback():
  
 def sendText(user, text):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
-    Authorization = 'aCMtien4nmgo53rqyYwWeTAvQMzY4B2pIv2BhB3SrMgwIdb8rB7KtVAMqIElxlWIZmObi//TzcIVgdwBh7eO17/y18fBWGpT5IF/eLdRpNdvnJ5tj3rbccbCtHnDBXHs/Dgp0KjA6XNZZabDV4dGZwdB04t89/1O/w1cDnyilFU=' # ใส่ ENTER_ACCESS_TOKEN เข้าไป
+    Authorization = 'lK+LiftMxJYs2X3wm0XzcykDvsJO8j8VY9R2xdxLzbjACs6RF0SpXkUP/Q3BLVXePKM6aF+RM7HkK5ExlTbDBS1FicGR1GHLdEakqLcun0+a4QnhW2+wBkQW7yRkUNAsjiU3EeP4khtaxqfDrVTj3gdB04t89/1O/w1cDnyilFU=' # ใส่ ENTER_ACCESS_TOKEN เข้าไป
  
     headers = {
         'Content-Type': 'application/json; charset=UTF-8',
