@@ -1,5 +1,4 @@
 gspread
-ServiceAccountCredentials
+oauth2client
 requests
 schedule
-time
