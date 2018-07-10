@@ -5,3 +5,8 @@ itsdangerous
 Jinja
 MarkupSafe
 Werkzeug
+gspread
+ServiceAccountCredentials
+requests
+schedule
+time
