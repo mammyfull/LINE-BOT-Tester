@@ -32,7 +32,7 @@ def job():
     r = requests.post(url, headers=headers , data = {'message':msg})
     print r.text
     
-schedule.every(10).second.do(job)
+schedule.every(0.1).minutes.do(job)
 
 while True:
     schedule.run_pending()
