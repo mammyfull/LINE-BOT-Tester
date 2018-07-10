@@ -1,8 +1,7 @@
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
-
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 import requests
 import gspread
 
